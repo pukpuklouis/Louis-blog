@@ -1,0 +1,18 @@
+---
+import { fetchBuilderContent } from '../../utils/builderio'; // Assuming you have a utility function for fetching content
+const blogPosts = await fetchBuilderContent('blog-list'); // Fetch list of blog posts from Builder.io
+---
+
+<main>
+  {blogPosts ? (
+    <ul>
+      {blogPosts.map(post => (
+        <li key={post.id}>
+          <a href={`/blog/${post.slug}`}>{post.title}</a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No blog posts found</p>
+  )}
+</main>

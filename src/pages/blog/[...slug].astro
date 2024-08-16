@@ -1,0 +1,13 @@
+---
+import { fetchBuilderContent } from '../../utils/builderio'; // Assuming you have a utility function for fetching content
+const { slug } = Astro.params;
+const builderContent = await fetchBuilderContent(slug); // Fetch content based on the slug
+---
+
+<main>
+  {builderContent ? (
+    <div dangerouslySetInnerHTML={{ __html: builderContent.html }} />
+  ) : (
+    <p>Content not found</p>
+  )}
+</main>
