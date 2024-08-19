@@ -1,10 +1,10 @@
 {
-  "name": "",
+  "name": "louis-blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --host 192.168.31.58",
-    "start": "astro dev --host 192.168.31.58",
+    "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
