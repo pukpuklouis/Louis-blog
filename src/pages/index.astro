@@ -3,48 +3,100 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { fetchBuilderContent } from '../utils/builderio'; // Assuming you have a utility function for fetching content
----
+import HeroKit from '../components/HeroKit.astro';
+import ArticleSection from '../components/ArticleSection.astro';
+import { getEntry } from 'astro:content';
 
+
+const homepage = await getEntry('homepage', 'index');
+const { Content } = await homepage.render();
+---
 <!doctype html>
-<html lang="en">
+<html lang="zh-TW">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+		  main {
+		    width: 720px;
+		  }
+
+		  @media (max-width: 1080px) {
+		    main {
+		      padding: 1em 2em;
+		    }
+		  }
+
+		  @media (max-width: 720px) {
+		    main {
+		      padding: 1em;
+		    }
+		  }
+		  /* Ordered List Styles */
+		  ol {
+		    counter-reset: item;
+		    padding-left: 2em;
+		  }
+
+		  ol li {
+		    display: block;
+		    position: relative;
+		    margin-bottom: 0.5em;
+		  }
+
+		  ol li::before {
+		    content: counter(item) ".";
+		    counter-increment: item;
+		    position: absolute;
+		    left: -1.5em;
+		    width: 1em;
+		    text-align: right;
+		    color: var(--accent-dark);
+		    font-weight: bold;
+		  }
+
+		  /* Unordered List (Bullet) Styles */
+		  ul {
+		    list-style-type: none;
+		    padding-left: 1.5em;
+		  }
+
+		  ul li {
+		    position: relative;
+		    margin-bottom: 0.5em;
+		  }
+
+		  ul li::before {
+		    content: "•";
+		    position: absolute;
+		    left: -1em;
+		    color: var(--accent);
+		    font-weight: bold;
+		  }
+
+		  /* Nested List Styles */
+		  ul ul, ol ol, ul ol, ol ul {
+		    margin-top: 0.5em;
+		    margin-bottom: 0.5em;
+		  }
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<HeroKit />
+			<h1>{homepage.data.title}</h1>
+			{homepage.data.heroImage && (
+				<img src={homepage.data.heroImage} alt="Hero image" class="hero-image" />
+			)}
+			<p>{homepage.data.description}</p>
+			
+			<article>
+				<Content />
+			</article>
+
+			<div class="article-section flex items-center justify-center pr-4 ml-0">
+				<ArticleSection />
+			</div>
 		</main>
 		<Footer />
 	</body>

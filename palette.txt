@@ -1,0 +1,27 @@
+Color Palette:
+
+Light Theme:
+- Background: #E9F5F5
+- Text: #1f4c4d
+- Accent: #EFA664
+- Accent Dark: #EF913C
+- Hover: rgba(0, 0, 0, 0.1)
+- Footer Background: #E9F5F5
+- Footer Text: #1f4c4d
+
+Dark Theme:
+- Background: #1f2729
+- Text: #c9cab1
+- Accent: #ee6200
+- Accent Hover: #bff7ff
+- Hover: rgba(255, 255, 255, 0.1)
+- Footer Background: #1f2729
+- Footer Text: #c9cab1
+
+Shared Colors:
+- Black: rgb(15, 18, 25)
+- Gray: rgb(96, 115, 159)
+- Gray Light: rgb(229, 233, 240)
+- Gray Dark: rgb(34, 41, 57)
+
+Note: Some colors use RGB values for flexibility in opacity adjustments.

@@ -1,0 +1,229 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+	--accent: #EFA664;
+	--accent-dark: #EF913C;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
+	--theme-bg: #E9F5F5;
+	--theme-text: #1f4c4d;
+	--theme-hover: rgba(0, 0, 0, 0.1);
+	--footer-bg: #E9F5F5;
+	--footer-text: #1f4c4d;
+}
+
+.dark {
+	--theme-bg: #1f2729;
+	--theme-text: #c9cab1;
+	--accent: #ee6200;
+	--accent-dark: #EE7018;
+	--theme-hover: rgba(255, 255, 255, 0.1);
+	--footer-bg: #1f2729;
+	--footer-text: #c9cab1;
+}
+
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+  font-family: 'Taipei Sans TC';
+  font-style: normal;
+  font-weight: 100;
+  src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Taipei Sans TC';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Taipei Sans TC';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Taipei Sans TC';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Taipei Sans TC';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Bold.woff2') format('woff2');
+}
+
+body {
+	font-family: 'Taipei Sans TC', 'Atkinson';
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--theme-bg);
+	background-size: 100% 600px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--theme-text);
+	font-size: 24px;
+	line-height: 1.7;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+main {
+	width: 720px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 3em 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: var(--theme-text);
+	line-height: 1.2;
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3 {
+	font-size: 1.17em;
+}
+h4 {
+	font-size: 1em;
+}
+h5 {
+	font-size: 1em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--accent);
+}
+a:hover {
+	color: var(--accent-dark);
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 20px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+@media (max-width: 480px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 0.75em;
+	}
+	h1 {
+		font-size: clamp(1.5em, 10vw, 2.2em);
+	}
+	h2 {
+		font-size: clamp(1.0em, 9vw, 1.8em);
+	}
+	.prose p {
+		margin-bottom: 1.5em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+html {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer {
+	background-color: var(--footer-bg);
+	color: var(--footer-text);
+}

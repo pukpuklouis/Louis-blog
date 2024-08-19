@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import { NAV_LINKS } from '../consts.ts';
+
+const currentPath = Astro.url.pathname;
+const segments = currentPath.split('/').filter(Boolean);
+
+const posts = await getCollection('blog');
+const currentPost = posts.find(post => `/blog/${post.slug}/` === currentPath);
+
+const breadcrumbs = [
+  { label: NAV_LINKS[0].title, href: NAV_LINKS[0].url },
+  ...segments.map((segment, index) => {
+    const href = `/${segments.slice(0, index + 1).join('/')}`;
+    let label = segment.charAt(0).toUpperCase() + segment.slice(1);
+    
+    if (segment === 'blog') {
+      label = NAV_LINKS[1].title;
+    } else if (segment === 'about') {
+      label = NAV_LINKS[2].title;
+    } else if (currentPost && index === segments.length - 1) {
+      label = currentPost.data.title;
+    }
+    
+    return { label, href };
+  }),
+];
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    {breadcrumbs.map((crumb, index) => (
+      <li>
+        {index === breadcrumbs.length - 1 ? (
+          <span aria-current="page">{crumb.label}</span>
+        ) : (
+          <a href={crumb.href}>{crumb.label}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb {
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+  }
+  .breadcrumb ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .breadcrumb li {
+    display: inline;
+    font-size: 0.9em;
+  }
+  .breadcrumb li:not(:last-child)::after {
+    content: ">";
+    margin: 0 0.5em;
+    color: var(--theme-text-lighter);
+  }
+  .breadcrumb a {
+    color: var(--theme-text);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    color: var(--theme-text-light);
+  }
+</style>
