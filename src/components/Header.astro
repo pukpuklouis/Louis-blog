@@ -133,9 +133,12 @@ import ThemeToggle from './ThemeToggle.astro';
 		color: var(--theme-text);
 		text-decoration: none;
 	}
-	@media (max-width: 720px) {
+	@media (max-width: 640px) {
+		.body{
+			white-space: normal;
+		}
 		.desktop-nav {
-			display: none;
+		display: none;
 		}
 		.hamburger {
 			display: flex;

@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 const segments = currentPath.split('/').filter(Boolean);
 
 const posts = await getCollection('blog');
-const currentPost = posts.find(post => `/blog/${post.slug}/` === currentPath);
+const currentPost = posts.find((post: any) => `/blog/${post.slug}/` === currentPath);
 
 const breadcrumbs = [
   { label: NAV_LINKS[0].title, href: NAV_LINKS[0].url },
@@ -71,5 +71,25 @@ const breadcrumbs = [
   }
   .breadcrumb span {
     color: var(--theme-text-light);
+  }
+  @media (max-width: 480px) {
+    .breadcrumb {
+      padding: 0.3em 0;
+    }
+    .breadcrumb ol {
+      flex-direction: row;
+    }
+    .breadcrumb li {
+      font-size: 0.8em;
+      margin-bottom: 0.3em;
+    }
+    .breadcrumb li:not(:last-child)::after {
+      content: ">";
+      margin: 0;
+    }
+    .breadcrumb li:not(:last-child)::before {
+      content: "";
+      color: var(--theme-text-lighter);
+    }
   }
 </style>
