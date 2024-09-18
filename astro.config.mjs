@@ -11,6 +11,6 @@ import tailwindConfigViewer from "astro-tailwind-config-viewer";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://blogs.itslouis.cc',
   integrations: [mdx(), sitemap(), tailwind(), react(), icon(), pageInsight(), metaTags(), tailwindConfigViewer()]
 });
