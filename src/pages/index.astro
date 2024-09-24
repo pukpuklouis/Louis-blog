@@ -97,41 +97,13 @@ const { Content } = await homepage.render();
 			<div class="article-section flex items-center justify-center pr-4 ml-0">
 				<ArticleSection />
 			</div>
+			<div
+				class="fb-like"
+				data-share="true"
+				data-width="450"
+				data-show-faces="true">
+			</div>
 		</main>
 		<Footer />
-		<!-- Facebook SDK -->
-		<script>
-			declare global {
-				interface Window {
-					fbAsyncInit: () => void;
-					FB: {
-						init: (config: { appId: string; xfbml: boolean; version: string }) => void;
-						AppEvents: {
-							logPageView: () => void;
-						};
-					};
-				}
-			}
-
-			window.fbAsyncInit = function() {
-				window.FB.init({
-					appId: '1200990651170931',
-					xfbml: true,
-					version: 'v20.0'
-				});
-				window.FB.AppEvents.logPageView();
-			};
-
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) { return; }
-				js = d.createElement(s) as HTMLScriptElement; // Ensure js is of type HTMLScriptElement
-				js.id = id;
-				js.src = "https://connect.facebook.net/en_US/sdk.js";
-				if (fjs.parentNode) { // Check if parentNode is not null
-					fjs.parentNode.insertBefore(js, fjs);
-				}
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
 	</body>
 </html>
