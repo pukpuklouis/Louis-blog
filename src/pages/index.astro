@@ -89,7 +89,12 @@ const { Content } = await homepage.render();
 				<img src={homepage.data.heroImage} alt="Hero image" class="hero-image" />
 			)}
 			<p>{homepage.data.description}</p>
-			
+			<div
+				class="fb-like"
+				data-share="true"
+				data-width="450"
+				data-show-faces="true">
+			</div>
 			<article>
 				<Content />
 			</article>
@@ -97,12 +102,7 @@ const { Content } = await homepage.render();
 			<div class="article-section flex items-center justify-center pr-4 ml-0">
 				<ArticleSection />
 			</div>
-			<div
-				class="fb-like"
-				data-share="true"
-				data-width="450"
-				data-show-faces="true">
-			</div>
+			
 		</main>
 		<Footer />
 	</body>
