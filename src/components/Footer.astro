@@ -48,6 +48,11 @@ import { SITE_TITLE } from '../consts';
 			</svg>
 		</a>
 	</div>
+	<div class="footer-links">
+		<a href="/terms">使用條款</a>
+		<span class="separator">|</span>
+		<a href="/privacy">隱私權政策</a>
+	</div>
 </footer>
 <style>
 	footer {
@@ -69,5 +74,19 @@ import { SITE_TITLE } from '../consts';
 	}
 	.social-links a:hover {
 		color: var(--accent);
+	}
+	.footer-links {
+		margin-top: 1em;
+		font-size: 0.6em;
+	}
+	.footer-links a {
+		color: var(--theme-text);
+		text-decoration: none;
+	}
+	.footer-links a:hover {
+		color: var(--accent);
+	}
+	.separator {
+		margin: 0 0.5em;
 	}
 </style>
