@@ -47,7 +47,7 @@ import ThemeToggle from './ThemeToggle.astro';
 		</div>
 		<div class="header-column theme-toggle" transition:persist="theme" >
 			<ThemeToggle />
-			<button class="hamburger" aria-label="Menu">
+			<button class="hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.toggle('active')">
 				<span></span>
 				<span></span>
 				<span></span>
