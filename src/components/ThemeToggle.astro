@@ -37,10 +37,10 @@
   }
 </style>
 
-<script type="text/partytown">
+<script type="text/partytown" is:inline>
   const themeToggle = document.getElementById("themeToggle");
   const getTheme = () => localStorage.getItem("theme");
-  const setTheme = (theme: string) => {
+  const setTheme = (theme) => {
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   };
