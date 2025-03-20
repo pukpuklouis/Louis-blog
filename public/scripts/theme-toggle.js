@@ -1,10 +1,14 @@
-// Theme toggle functionality for Astro sites with Partytown support
-
 // Apply theme immediately before any rendering to prevent flashing
 (function() {
   const theme = localStorage.getItem("theme") || 
     (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   document.documentElement.classList.toggle("dark", theme === "dark");
+  
+  // Ensure body class is also set for components that rely on it
+  if (document.body) {
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme === "dark" ? "dark" : "light");
+  }
 })();
 
 const setupThemeToggle = () => {
@@ -15,6 +19,10 @@ const setupThemeToggle = () => {
   const setTheme = (theme) => {
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
+    
+    // Also set body class for components that rely on it
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme === "dark" ? "dark" : "light");
     
     // Dispatch custom event for Partytown to capture theme changes
     window.dispatchEvent(new CustomEvent('themeChange', { 
@@ -81,18 +89,17 @@ setupThemeToggle();
 // Handle Astro page transitions
 // Use before-swap to set theme before the new page content is visible
 document.addEventListener("astro:before-swap", () => {
+  // Ensure content visibility during transition
+  document.documentElement.style.visibility = 'visible';
+  
   const theme = localStorage.getItem("theme") || 
     (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   // Apply theme to the incoming page before it's visible
   document.documentElement.classList.toggle("dark", theme === "dark");
 });
 
-// Still run the full setup after page load to ensure everything is properly initialized
-// document.addEventListener("astro:page-load", setupThemeToggle);
-// document.addEventListener("astro:after-swap", setupThemeToggle);
-
 // Special handling for Partytown to ensure state is maintained
-if (window.partytown) {
+if (typeof partytown !== 'undefined') {
   // Listen for theme changes from main thread
   window.addEventListener('themeChange', (e) => {
     // This helps Partytown maintain theme state

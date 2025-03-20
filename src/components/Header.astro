@@ -65,7 +65,7 @@ import ThemeToggle from './ThemeToggle.astro';
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: var(--theme-bg);
+		background: var(--color-theme-bg);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 		transition: background-color 0.3s ease, color 0.3s ease;
 	}
@@ -77,7 +77,7 @@ import ThemeToggle from './ThemeToggle.astro';
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
-		color: var(--theme-text);
+		color: var(--color-theme-text);
 	}
 	nav {
 		display: flex;
@@ -87,14 +87,14 @@ import ThemeToggle from './ThemeToggle.astro';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--theme-text);
+		color: var(--color-theme-text);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 		transition: color 0.3s ease;
 	}
 	nav a.active {
 		text-decoration: none;
-		border-bottom-color: var(--accent);
+		border-bottom-color: var(--color-accent);
 	}
 	.social-links,
 	.social-links a {
@@ -117,7 +117,7 @@ import ThemeToggle from './ThemeToggle.astro';
 	.hamburger span {
 		width: 2rem;
 		height: 0.25rem;
-		background-color: var(--theme-text);
+		background-color: var(--color-theme-text);
 		border-radius: 10px;
 		transition: all 0.3s linear;
 	}

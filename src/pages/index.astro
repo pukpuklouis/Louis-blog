@@ -1,109 +1,24 @@
 ---
+import Layout from '../layouts/Layout.astro';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import HeroKit from '../components/HeroKit.astro';
 import ArticleSection from '../components/ArticleSection.astro';
 import { getEntry } from 'astro:content';
 
-
 const homepage = await getEntry('homepage', 'index');
 const { Content } = await homepage.render();
 ---
-<!doctype html>
-<html lang="zh-TW">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-		  main {
-		    width: 720px;
-		  }
-
-		  @media (max-width: 1080px) {
-		    main {
-		      padding: 1em 2em;
-		    }
-		  }
-
-		  @media (max-width: 720px) {
-		    main {
-		      padding: 1em;
-		    }
-		  }
-		  /* Ordered List Styles */
-		  ol {
-		    counter-reset: item;
-		    padding-left: 2em;
-		  }
-
-		  ol li {
-		    display: block;
-		    position: relative;
-		    margin-bottom: 0.5em;
-		  }
-
-		  ol li::before {
-		    content: counter(item) ".";
-		    counter-increment: item;
-		    position: absolute;
-		    left: -1.5em;
-		    width: 1em;
-		    text-align: right;
-		    color: var(--accent-dark);
-		    font-weight: bold;
-		  }
-
-		  /* Unordered List (Bullet) Styles */
-		  ul {
-		    list-style-type: none;
-		    padding-left: 1.5em;
-		  }
-
-		  ul li {
-		    position: relative;
-		    margin-bottom: 0.5em;
-		  }
-
-		  ul li::before {
-		    content: "•";
-		    position: absolute;
-		    left: -1em;
-		    color: var(--accent);
-		    font-weight: bold;
-		  }
-
-		  /* Nested List Styles */
-		  ul ul, ol ol, ul ol, ol ul {
-		    margin-top: 0.5em;
-		    margin-bottom: 0.5em;
-		  }
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<HeroKit />
-			<h1>{homepage.data.title}</h1>
-			{homepage.data.heroImage && (
-				<img src={homepage.data.heroImage} alt="Hero image" class="hero-image" />
-			)}
-			<p>{homepage.data.description}</p>
-			<div
-				class="fb-like"
-				data-share="true"
-				data-width="450"
-				data-show-faces="true">
-			</div>
-			<article>
-				<Content />
-			</article>
-
-			<div class="article-section flex items-center justify-center pr-4 ml-0">
-				<ArticleSection />
-			</div>
-			
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title={SITE_TITLE}>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} slot="head" />
+  <main>
+    <div class="content-container">
+      <article class="homepage-content">
+        <Content />
+      </article>
+    </div>
+    <div class="article-section">
+      <ArticleSection />
+    </div>
+  </main>
+</Layout>
