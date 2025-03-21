@@ -30,14 +30,14 @@ const breadcrumbs = [
 <nav aria-label="Breadcrumb" class="py-2 px-4 mb-4">
   <div class="flex flex-wrap">
     {breadcrumbs.map((crumb, index) => (
-      <div class="text-md md:text-lg inline-flex items-center">
+      <div class="font-medium text-md md:text-lg inline-flex items-center">
         {index === breadcrumbs.length - 1 ? (
-          <span aria-current="page" class="text-[var(--color-theme-text)] opacity-90">{crumb.label}</span>
+          <span aria-current="page" class="font-light text-[var(--color-theme-text)] opacity-70">{crumb.label}</span>
         ) : (
           <a href={crumb.href} class="text-[var(--color-theme-text)] hover:no-underline">{crumb.label}</a>
         )}
         {index !== breadcrumbs.length - 1 && 
-          <span class="mx-2 text-[var(--color-theme-text)] opacity-60">></span>
+          <span class="mx-2 text-[var(--color-theme-text)] opacity-50">></span>
         }
       </div>
     ))}
