@@ -158,15 +158,6 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <script type="text/partytown" src="/scripts/theme-toggle.js"></script>
 <script type="text/partytown" is:inline>
-		const hamburger = document.querySelector('.hamburger');
-		const mobileNav = document.querySelector('.mobile-nav');
-		if (hamburger && mobileNav) {
-			hamburger.addEventListener('click', () => {
-				mobileNav.classList.toggle('active');
-			});
-		}
-	});
-
 	document.addEventListener('DOMContentLoaded', () => {
 		const hamburger = document.querySelector('.hamburger');
 		const mobileNav = document.querySelector('.mobile-nav');
