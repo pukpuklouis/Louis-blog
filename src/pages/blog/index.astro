@@ -11,12 +11,15 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 const posts = (await getCollection('blog')).sort(
 	(a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const page_Title = "老鹿的宇宙記錄";
+const page_Description = "老鹿的宇宙記錄。這裡匯集了關於個人成長、效率提升和生活哲學的深度思考和實用建議的相關文章。";
+
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-TW">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={page_Title} description={page_Description} />
 	</head>
 	<body>
 		<Header />
