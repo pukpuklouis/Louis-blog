@@ -1,13 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BaseHead from '../components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import ArticleSection from '../components/ArticleSection.astro';
-import { getEntry } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import ArticleSection from "../components/ArticleSection.astro";
+import { getEntry } from "astro:content";
 
-const homepage = await getEntry('homepage', 'index');
+const homepage = await getEntry("homepage", "index");
 const { Content } = await homepage.render();
 ---
+
 <Layout title={SITE_TITLE}>
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} slot="head" />
   <main>

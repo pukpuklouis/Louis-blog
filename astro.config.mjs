@@ -9,6 +9,8 @@ import metaTags from "astro-meta-tags";
 import partytown from "@astrojs/partytown";
 import tailwindConfigViewer from "astro-tailwind-config-viewer";
 
+import min from "astro-min";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://blogs.itslouis.cc',
@@ -35,7 +37,11 @@ export default defineConfig({
         ]
       },
     }),
+    min(),
   ],
+  experimental: {
+    svg: true,
+  },
   vite: {
     build: {
       // minify: false
