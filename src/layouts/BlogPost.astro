@@ -13,7 +13,7 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="zh-TW">
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
@@ -28,7 +28,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</div>
 				<div class="prose w-full max-w-2xl mx-auto">
 					<div class="title">
-						<h1 class="text-left">{title}</h1>
+						<h2 class="text-left">{title}</h2>
 						<div class="date text-right text-sm md:text-lg font-normal text-[var(--color-accent)]">
 							<FormattedDate date={pubDate} />
 							{
