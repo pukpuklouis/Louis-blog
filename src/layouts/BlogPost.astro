@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import '../styles/global.css';
+import '../styles/blogpost.css';
 
 
 type Props = CollectionEntry<'blog'>['data'];
@@ -23,10 +24,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main class="blog-post-main">
 			<Breadcrumb />
 			<article>
-				<div class="hero-image max-w-2xl mx-auto" transition:name=${slug}>
+				<div class="rounded-xl max-w-2xl mx-auto" transition:name=${slug}>
 					{heroImage && <img width={1020} height={510} src={heroImage} alt="{title}" />}
 				</div>
-				<div class="prose w-full max-w-2xl mx-auto">
+				<div class="w-full max-w-2xl mx-auto">
 					<div class="title">
 						<h2 class="text-left">{title}</h2>
 						<div class="date text-right text-sm md:text-lg font-normal text-[var(--color-accent)]">

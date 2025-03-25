@@ -36,6 +36,13 @@ const ogImage = new URL(image, Astro.url);
 	type="font/woff"
 	crossorigin
 />
+<link
+	rel="preload"
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap"
+	as="font"
+	type="font/woff2"
+	crossorigin
+/>
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-0.xml" />
@@ -85,4 +92,4 @@ const ogImage = new URL(image, Astro.url);
 <!-- View Transitions -->
 <ClientRouter />
 <!-- Theme Toggle -->
-<script type="text/partytown" src="/scripts/theme-toggle.js"></script>
+<script type="text/partytown" src="/scripts/theme-toggle-v1.js"></script>

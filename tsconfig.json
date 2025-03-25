@@ -6,8 +6,14 @@
     "public/~partytown"
   ],
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "jsxImportSource": "react",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"

@@ -4,7 +4,8 @@
 @tailwind utilities;
 
 /* Ensure visibility for Partytown compatibility */
-html, body {
+html,
+body {
   visibility: visible !important;
 }
 
@@ -21,6 +22,36 @@ html, body {
   --color-theme-hover: rgba(0, 0, 0, 0.1);
   --color-footer-bg: #E9F5F5;
   --color-footer-text: #1f4c4d;
+  --color-theme-border: #d1d5db;
+  --color-theme-text-light: #6b7280;
+  --color-theme-code-bg: #1e293b;
+  --color-theme-code-text: #e2e8f0;
+  --color-theme-code-inline-bg: rgba(0, 0, 0, 0.1);
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --radius: 0.5rem;
 }
 
 .dark {
@@ -31,10 +62,43 @@ html, body {
   --color-theme-hover: rgba(255, 255, 255, 0.1);
   --color-footer-bg: #1f2729;
   --color-footer-text: #c9cab1;
+  --color-theme-border: #4b5563;
+  --color-theme-text-light: #9ca3af;
+  --color-theme-code-bg: #0f172a;
+  --color-theme-code-text: #e2e8f0;
+  --color-theme-code-inline-bg: rgba(255, 255, 255, 0.1);
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 }
 
 /* Font definitions */
 @layer base {
+  /* Import Noto Sans TC from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap');
+
+  /* Keep Atkinson font declarations */
   @font-face {
     font-family: 'Atkinson';
     src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -42,6 +106,7 @@ html, body {
     font-style: normal;
     font-display: swap;
   }
+
   @font-face {
     font-family: 'Atkinson';
     src: url('/fonts/atkinson-bold.woff') format('woff');
@@ -49,48 +114,13 @@ html, body {
     font-style: normal;
     font-display: swap;
   }
-  @font-face {
-    font-family: 'Taipei Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100;
-    src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Thin.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Taipei Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 300;
-    src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Light.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Taipei Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Regular.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Taipei Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Medium.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Taipei Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 700;
-    src: url('https://cdn.jsdelivr.net/npm/taipei-sans-tc@1.0.0/TaipeiSansTCBeta-Bold.woff2') format('woff2');
-  }
 }
 
 /* Custom component classes using @apply for Tailwind compatibility */
 @layer components {
   body {
     @apply m-0 p-0 text-left text-2xl leading-relaxed font-light;
-    font-family: 'Taipei Sans TC', 'Atkinson', sans-serif;
+    font-family: 'Noto Sans TC', 'Atkinson', sans-serif;
     background: var(--color-theme-bg);
     color: var(--color-theme-text);
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -103,7 +133,7 @@ html, body {
     visibility: visible !important;
   }
 
-  .content-container, 
+  .content-container,
   .homepage-content,
   .article-section,
   article,
@@ -143,7 +173,9 @@ html, body {
     color: var(--color-theme-text);
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     @apply text-xl font-normal mb-2;
     color: var(--color-theme-text);
   }
@@ -171,14 +203,17 @@ html, body {
 
   code {
     @apply px-1 py-0.5 rounded;
-    background-color: rgb(var(--gray-light));
+    background-color: var(--color-theme-code-inline-bg);
+    color: var(--color-theme-code-text);
   }
 
   pre {
     @apply p-6 rounded-lg;
+    background-color: var(--color-theme-code-bg);
+    color: var(--color-theme-code-text);
   }
 
-  pre > code {
+  pre>code {
     @apply bg-transparent p-0;
   }
 
@@ -219,7 +254,10 @@ html, body {
   }
 
   /* Nested lists */
-  ul ul, ol ol, ul ol, ol ul {
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
     @apply my-2;
   }
 
@@ -229,87 +267,87 @@ html, body {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   .article-section-title {
     @apply mb-2 text-left font-bold;
-    font-family: 'Taipei Sans TC';
+    font-family: 'Noto Sans TC';
   }
-  
+
   .post-grid {
     @apply grid gap-6;
     grid-template-columns: 1fr;
   }
-  
+
   .post-card {
     @apply overflow-hidden rounded-lg transition-shadow;
     border: 1px solid var(--color-theme-text);
   }
-  
+
   .post-card:hover {
     @apply shadow-md;
   }
-  
+
   .post-link {
     @apply block no-underline;
     color: inherit;
   }
-  
+
   .post-image-container {
     @apply w-full h-[200px];
   }
-  
+
   .post-image {
     @apply w-full h-full object-cover;
   }
-  
+
   .post-content {
     @apply p-4;
   }
-  
+
   .post-title {
     @apply my-1 text-lg font-bold;
-    font-family: 'Taipei Sans TC';
+    font-family: 'Noto Sans TC';
   }
-  
+
   .post-description {
     @apply my-2 text-sm leading-snug font-light;
-    font-family: 'Taipei Sans TC';
+    font-family: 'Noto Sans TC';
     color: var(--color-theme-text);
   }
-  
+
   .post-date {
     @apply text-xs;
     color: var(--color-accent-dark);
   }
-  
+
   @media (min-width: 768px) {
     .post-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (min-width: 1024px) {
     .article-section-title {
       @apply -ml-2;
     }
-    
+
     .post-grid {
       grid-template-columns: repeat(1, 1fr);
     }
-    
+
     .post-link {
       @apply flex flex-row h-full;
     }
-    
+
     .post-image-container {
       @apply max-w-[200px] h-auto;
       aspect-ratio: 1 / 1;
     }
-    
+
     .post-content {
       @apply flex-grow flex flex-col;
     }
-    
+
     .post-description {
       /* @apply flex-grow; */
     }
@@ -320,45 +358,45 @@ html, body {
 @layer components {
   .blog-post-main {
     @apply w-full max-w-full mx-0 p-12 font-sans;
-    font-family: 'Taipei Sans TC', 'Atkinson';
+    font-family: 'Noto Sans TC', 'Atkinson';
   }
-  
+
   .blog-hero-image {
     @apply w-full;
   }
-  
+
   .blog-hero-image img {
     @apply block mx-auto rounded-xl shadow-md;
     box-shadow: var(--box-shadow);
   }
-  
+
   .prose {
     @apply w-[600px] max-w-[calc(100%-2em)] mx-auto p-4;
     color: var(--color-theme-text);
   }
-  
+
   .title {
     @apply mb-4 py-4 text-center leading-none;
   }
-  
+
   .title h1 {
     @apply m-0 mb-2;
   }
-  
+
   .date {
     @apply mb-2;
     color: var(--accent-dark);
   }
-  
+
   .last-updated-on {
     @apply italic;
   }
-  
+
   @media (max-width: 640px) {
     .blog-post-main {
       @apply p-4;
     }
-    
+
     .prose {
       @apply w-full max-w-full m-0 p-4;
     }
@@ -370,40 +408,40 @@ html, body {
   .blog-grid {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-[1020px] mx-auto;
   }
-  
+
   .blog-card {
     @apply flex flex-col mb-8 transition-all duration-300;
   }
-  
+
   .blog-card a {
     @apply no-underline text-inherit;
   }
-  
+
   .blog-card .image-container {
     @apply overflow-hidden rounded-xl shadow-md;
   }
-  
+
   .blog-card .image-container img {
     @apply w-full h-auto object-cover transition-transform duration-300;
   }
-  
+
   .blog-card:hover .image-container img {
     @apply transform scale-105;
   }
-  
+
   .blog-card .title {
     @apply mt-3 text-xl font-medium;
   }
-  
+
   .blog-card .date {
     @apply text-sm opacity-75;
   }
-  
+
   @media (max-width: 720px) {
     .blog-grid {
       @apply gap-2;
     }
-    
+
     .blog-card {
       @apply w-full text-center;
     }
@@ -422,7 +460,7 @@ html, body {
     main {
       @apply p-4;
     }
-    
+
     .content-container {
       @apply p-0;
     }
@@ -434,30 +472,38 @@ html, body {
       line-height: 1.8;
       font-weight: 100;
     }
+
     main {
       padding: 0.75em;
     }
+
     h1 {
       font-size: clamp(1.3em, 9vw, 2.2em);
       font-weight: 700;
     }
+
     h2 {
       font-size: clamp(1em, 8vw, 1.8em);
       font-weight: 600;
     }
+
     h3 {
       font-size: clamp(1em, 8vw, 1.7em);
       font-weight: 500;
     }
+
     h4 {
       font-size: clamp(0.9em, 7vw, 1.4em);
     }
+
     h5 {
       font-size: clamp(0.8em, 6vw, 1.2em);
     }
+
     strong {
       font-weight: 700;
     }
+
     .prose p {
       font-weight: 100;
       margin-bottom: 1.5em;
@@ -465,16 +511,19 @@ html, body {
       word-break: break-word;
       word-wrap: break-word;
     }
+
     .prose ul {
       list-style: none;
       margin-left: 1em;
     }
+
     .prose ul li {
       position: relative;
       margin-bottom: 1em;
       padding-left: 1em;
       line-height: 1.4em;
     }
+
     .prose ul li::before {
       content: '•';
       position: absolute;
@@ -482,30 +531,35 @@ html, body {
       top: 0;
       color: currentColor;
     }
+
     .prose ol {
       list-style-type: decimal;
       margin-left: 1em;
       counter-reset: item;
     }
+
     .prose ol li {
       position: relative;
       padding-left: 1em;
       margin-bottom: 1em;
       line-height: 1.4em;
     }
+
     .prose ol li::before {
       position: absolute;
       left: 0;
       top: 0;
       color: currentColor;
     }
+
     blockquote {
       border-left: 4px solid var(--color-accent);
       padding: 0 0 0 20px;
       margin: 0px;
       font-size: 1em;
     }
-    .auto-fit-text{
+
+    .auto-fit-text {
       font-size: clamp(0.2em, 4vw, 1em);
       overflow: hidden;
       text-overflow: ellipsis;
@@ -535,4 +589,14 @@ html {
 footer {
   background-color: var(--footer-bg);
   color: var(--footer-text);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }

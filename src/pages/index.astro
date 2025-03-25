@@ -12,13 +12,9 @@ const { Content } = await render(homepage);
 <Layout title={SITE_TITLE}>
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} slot="head" />
   <main>
-    <div class="content-container">
-      <article class="homepage-content">
-        <Content />
-      </article>
-    </div>
-    <div class="article-section">
-      <ArticleSection />
-    </div>
+    <article>
+      <Content />
+    </article>
+    <ArticleSection />
   </main>
 </Layout>

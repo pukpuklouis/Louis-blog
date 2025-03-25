@@ -5,30 +5,32 @@ import FormattedDate from './FormattedDate.astro';
 const posts = await getCollection('blog');
 const latestPosts = posts
   .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 4);
 ---
 
-<section class="article-section flex flex-col items-left w-[750px] max-w-3xl gap-8 mx-auto">
-  <h2 class="article-section-title font-2xl">最新宇宙紀錄</h2>
-  <div class="post-grid">
+<section class="sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto">
+  <h2 class="text-3xl text-center md:text-center py-8 md:py-8 md:text-4xl lg:text-5xl">最新宇宙紀錄</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:max-w-2xl lg:min-w-full gap-4 place-self-center">
     {latestPosts.map((post: any) => (
-      <article class="post-card border-[0.3px]">
-        <a href={`/blog/${post.slug}/`} class="post-link hover:no-underline">
+      <article class="flex flex-col border-[0.3px] min-w-full md:min-w-full lg:min-w-full lg:max-h-48 rounded-xl overflow-hidden">
+        <a href={`/blog/${post.slug}/`} class="hover:no-underline">
+          <div class="flex flex-col md:grid md:grid-rows-1 lg:flex lg:flex-row">
           {post.data.heroImage && (
-            <div class="post-image-container" transition:name={post.slug} >
+            <div class="w-full lg:max-w-fit h-fit mx-auto" transition:name={post.slug} >
               <img 
                 src={post.data.heroImage} 
                 alt={`Hero image for ${post.data.title}`} 
-                class="post-image"
+                class="object-cover w-full h-36 md:w-full md:aspect-video lg:w-48 lg:h-auto lg:aspect-square  rounded-xl"
               />
             </div>
           )}
-          <div class="post-content">
-            <h3 class="post-title font-bold lg:text-2xl text-xl">{post.data.title}</h3>
-            <p class="post-description text-xl line-clamp-3">{post.data.description}</p>
-            <div class="post-date font-medium text-sm">
+          <div class="flex grow flex-col grid-row-3 md:grid-row-3 justify-between max-w-full md:min-h-4xl lg:max-h-48 py-3 px-4 md:px-4 lg:pr-2">
+            <h3 class="font-bold text-pretty  text-2xl md:text-2xl lg:text-2xl">{post.data.title}</h3>
+            <p class="text-[var(--color-theme-text)] text-pretty font-light text-sm md:text-lg lg:text-md line-clamp-3">{post.data.description}</p>
+            <div class="font-medium text-sm">
               <FormattedDate date={post.data.pubDate} />
             </div>
+          </div>
           </div>
         </a>
       </article>
