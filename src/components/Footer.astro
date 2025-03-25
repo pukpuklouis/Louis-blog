@@ -1,7 +1,9 @@
 ---
 const today = new Date();
 import { SITE_TITLE } from "../consts";
-import ALStudio from "../assets/Anlstudio.svg";
+import { Picture } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+
 ---
 
 <footer>
@@ -11,8 +13,12 @@ import ALStudio from "../assets/Anlstudio.svg";
 			{SITE_TITLE} All rights reserved.</span
 		>
 	</div>
-	<div class="social-links">
-		Design by<ALStudio size={40} />
+	<div class="flex flex-row gap-2 items-center justify-center font-normal text-xl text-[var(--color-theme-text)]">
+		<div>
+			Design by
+		</div>
+		<Picture class="block dark:hidden transition-all duration-300" src="/A&Lstudio-dark.svg" alt="A&Lstudio logo" width={30} height={30}/>
+		<Picture class="hidden dark:block transition-all duration-300" src="/A&Lstudio.svg" alt="A&Lstudio logo" width={30} height={30}/>
 	</div>
 </footer>
 <div class="social-links">
