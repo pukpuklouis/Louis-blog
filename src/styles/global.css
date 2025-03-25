@@ -3,13 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure visibility for Partytown compatibility */
-html,
-body {
-  visibility: visible !important;
-}
-
-/* Custom theme variables that can be used with Tailwind */
+/* Custom theme variables */
 :root {
   --color-accent: #EFA664;
   --color-accent-dark: #EF913C;
@@ -31,8 +25,6 @@ body {
   --foreground: 0 0% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 0 0% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 3.9%;
   --primary: 0 0% 9%;
   --primary-foreground: 0 0% 98%;
   --secondary: 0 0% 96.1%;
@@ -46,11 +38,6 @@ body {
   --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
   --radius: 0.5rem;
 }
 
@@ -71,8 +58,6 @@ body {
   --foreground: 0 0% 98%;
   --card: 0 0% 3.9%;
   --card-foreground: 0 0% 98%;
-  --popover: 0 0% 3.9%;
-  --popover-foreground: 0 0% 98%;
   --primary: 0 0% 98%;
   --primary-foreground: 0 0% 9%;
   --secondary: 0 0% 14.9%;
@@ -86,19 +71,12 @@ body {
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;
   --ring: 0 0% 83.1%;
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
 }
 
 /* Font definitions */
 @layer base {
-  /* Import Noto Sans TC from Google Fonts */
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap');
 
-  /* Keep Atkinson font declarations */
   @font-face {
     font-family: 'Atkinson';
     src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -114,23 +92,29 @@ body {
     font-style: normal;
     font-display: swap;
   }
-}
 
-/* Custom component classes using @apply for Tailwind compatibility */
-@layer components {
+  * {
+    @apply border-border;
+  }
+
   body {
-    @apply m-0 p-0 text-left text-2xl leading-relaxed font-light;
+    @apply bg-background text-foreground m-0 p-0 text-left text-2xl leading-relaxed font-light;
     font-family: 'Noto Sans TC', 'Atkinson', sans-serif;
     background: var(--color-theme-bg);
     color: var(--color-theme-text);
     transition: background-color 0.3s ease, color 0.3s ease;
-    visibility: visible !important;
   }
 
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom component classes */
+@layer components {
   main {
     @apply w-full mx-auto px-4 py-12;
     max-width: 1200px;
-    visibility: visible !important;
   }
 
   .content-container,
@@ -141,7 +125,6 @@ body {
     @apply mx-auto;
     width: 750px;
     max-width: calc(100% - 2em);
-    visibility: visible !important;
   }
 
   .hero-image {
@@ -151,7 +134,6 @@ body {
 
   .homepage-content {
     @apply mt-8;
-    visibility: visible !important;
   }
 
   .article-section {
@@ -222,50 +204,9 @@ body {
     border-left: 4px solid var(--color-accent);
   }
 
-  /* List styles */
-  ol {
-    @apply pl-8 relative;
-    counter-reset: item;
-  }
-
-  ol li {
-    @apply block relative mb-2;
-  }
-
-  ol li::before {
-    content: counter(item) ".";
-    counter-increment: item;
-    @apply absolute -left-6 w-4 text-right font-bold;
-    color: var(--color-accent-dark);
-  }
-
-  ul {
-    @apply pl-6 list-none;
-  }
-
-  ul li {
-    @apply relative mb-2;
-  }
-
-  ul li::before {
-    content: "•";
-    @apply absolute -left-4 font-bold;
-    color: var(--color-accent);
-  }
-
-  /* Nested lists */
-  ul ul,
-  ol ol,
-  ul ol,
-  ol ul {
-    @apply my-2;
-  }
-
   /* Article section styles */
   .article-section {
-    @apply w-full mx-auto px-4 py-4 max-w-[1020px];
-    padding-left: 0;
-    padding-right: 0;
+    @apply w-full mx-auto px-0 py-4 max-w-[1020px];
   }
 
   .article-section-title {
@@ -320,6 +261,37 @@ body {
     color: var(--color-accent-dark);
   }
 
+  /* Blog post specific styles */
+  .blog-post-main {
+    @apply w-full max-w-full mx-0 p-12 font-sans;
+    font-family: 'Noto Sans TC', 'Atkinson';
+  }
+
+  .blog-hero-image {
+    @apply w-full;
+  }
+
+  .blog-hero-image img {
+    @apply block mx-auto rounded-xl shadow-md;
+  }
+
+  .title {
+    @apply mb-4 py-4 text-center leading-none;
+  }
+
+  .title h1 {
+    @apply m-0 mb-2;
+  }
+
+  .date {
+    @apply mb-2;
+    color: var(--accent-dark);
+  }
+
+  .last-updated-on {
+    @apply italic;
+  }
+
   @media (min-width: 768px) {
     .post-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -347,109 +319,8 @@ body {
     .post-content {
       @apply flex-grow flex flex-col;
     }
-
-    .post-description {
-      /* @apply flex-grow; */
-    }
-  }
-}
-
-/* Blog post specific styles */
-@layer components {
-  .blog-post-main {
-    @apply w-full max-w-full mx-0 p-12 font-sans;
-    font-family: 'Noto Sans TC', 'Atkinson';
   }
 
-  .blog-hero-image {
-    @apply w-full;
-  }
-
-  .blog-hero-image img {
-    @apply block mx-auto rounded-xl shadow-md;
-    box-shadow: var(--box-shadow);
-  }
-
-  .prose {
-    @apply w-[600px] max-w-[calc(100%-2em)] mx-auto p-4;
-    color: var(--color-theme-text);
-  }
-
-  .title {
-    @apply mb-4 py-4 text-center leading-none;
-  }
-
-  .title h1 {
-    @apply m-0 mb-2;
-  }
-
-  .date {
-    @apply mb-2;
-    color: var(--accent-dark);
-  }
-
-  .last-updated-on {
-    @apply italic;
-  }
-
-  @media (max-width: 640px) {
-    .blog-post-main {
-      @apply p-4;
-    }
-
-    .prose {
-      @apply w-full max-w-full m-0 p-4;
-    }
-  }
-}
-
-/* Blog index page styles */
-@layer components {
-  .blog-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-[1020px] mx-auto;
-  }
-
-  .blog-card {
-    @apply flex flex-col mb-8 transition-all duration-300;
-  }
-
-  .blog-card a {
-    @apply no-underline text-inherit;
-  }
-
-  .blog-card .image-container {
-    @apply overflow-hidden rounded-xl shadow-md;
-  }
-
-  .blog-card .image-container img {
-    @apply w-full h-auto object-cover transition-transform duration-300;
-  }
-
-  .blog-card:hover .image-container img {
-    @apply transform scale-105;
-  }
-
-  .blog-card .title {
-    @apply mt-3 text-xl font-medium;
-  }
-
-  .blog-card .date {
-    @apply text-sm opacity-75;
-  }
-
-  @media (max-width: 720px) {
-    .blog-grid {
-      @apply gap-2;
-    }
-
-    .blog-card {
-      @apply w-full text-center;
-    }
-  }
-}
-
-/* Responsive adjustments */
-@layer utilities {
   @media (max-width: 1080px) {
     main {
       @apply p-8;
@@ -504,59 +375,15 @@ body {
       font-weight: 700;
     }
 
-    .prose p {
-      font-weight: 100;
-      margin-bottom: 1.5em;
-      white-space: pre-wrap;
-      word-break: break-word;
-      word-wrap: break-word;
-    }
-
-    .prose ul {
-      list-style: none;
-      margin-left: 1em;
-    }
-
-    .prose ul li {
-      position: relative;
-      margin-bottom: 1em;
-      padding-left: 1em;
-      line-height: 1.4em;
-    }
-
-    .prose ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: currentColor;
-    }
-
-    .prose ol {
-      list-style-type: decimal;
-      margin-left: 1em;
-      counter-reset: item;
-    }
-
-    .prose ol li {
-      position: relative;
-      padding-left: 1em;
-      margin-bottom: 1em;
-      line-height: 1.4em;
-    }
-
-    .prose ol li::before {
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: currentColor;
-    }
-
     blockquote {
       border-left: 4px solid var(--color-accent);
       padding: 0 0 0 20px;
       margin: 0px;
       font-size: 1em;
+    }
+
+    .blog-post-main {
+      @apply p-4;
     }
 
     .auto-fit-text {
@@ -565,38 +392,5 @@ body {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-  }
-}
-
-.sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }
