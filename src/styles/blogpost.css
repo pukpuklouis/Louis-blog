@@ -5,8 +5,8 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-family: 'Noto Sans TC', 'Atkinson', sans-serif;
-    line-height: 1.4;
-    white-space: pre-line;
+    line-height: 1.6;
+    white-space: pre-wrap;
     /* Changed from pre to pre-line */
 }
 
@@ -110,8 +110,8 @@
 .blog-content li {
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.4;
-    margin-bottom: 0.2rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
 }
 
 .blog-content li>ul,
@@ -166,8 +166,6 @@
 
 /* Tables */
 .blog-content table {
-    white-space: normal;
-    /* Reset for tables */
     width: 100%;
     margin: 0.5rem 0 1rem;
     border-collapse: collapse;
