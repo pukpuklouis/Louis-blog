@@ -75,7 +75,6 @@
 
 /* Font definitions */
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap');
 
   @font-face {
     font-family: 'Atkinson';
@@ -89,6 +88,78 @@
     font-family: 'Atkinson';
     src: url('/fonts/atkinson-bold.woff') format('woff');
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Black-subset.woff2') format('woff2');
+    font-weight: 900;
+    font-style: bold;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-ExtraBold-subset.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Bold-subset.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-SemiBold-subset.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Medium-subset.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Regular-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Light-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-ExtraLight-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Thin-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
+    font-weight: 100;
     font-style: normal;
     font-display: swap;
   }
