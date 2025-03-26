@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import icon from "astro-icon";
@@ -8,11 +8,11 @@ import pageInsight from "astro-page-insight";
 import metaTags from "astro-meta-tags";
 import partytown from "@astrojs/partytown";
 import tailwindConfigViewer from "astro-tailwind-config-viewer";
-import minify from 'astro-min';
+import minify from "astro-min";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blogs.itslouis.cc',
+  site: "https://blogs.itslouis.cc",
   integrations: [
     mdx(),
     sitemap(),
@@ -24,22 +24,19 @@ export default defineConfig({
     tailwindConfigViewer(),
     partytown({
       config: {
-        debug: true, 
-        forward: [
-          'dataLayer.push',
-          'h8OQRUhXvvY2LPkuL7o0IQ'
-        ],
+        debug: false,
+        forward: ["dataLayer.push", "h8OQRUhXvvY2LPkuL7o0IQ"],
         proxies: [
           {
-            host: 'analytics.ahrefs.com',
-          }
-        ]
+            host: "analytics.ahrefs.com",
+          },
+        ],
       },
     }),
     minify({
       do_not_minify_doctype: false,
       ensure_spec_compliant_unquoted_attribute_values: false,
-      keep_closing_tags: false,
+      keep_closing_tags: true,
       keep_comments: false,
       keep_html_and_head_opening_tags: true,
       keep_input_type_text_attr: false,
@@ -53,9 +50,6 @@ export default defineConfig({
       remove_processing_instructions: false,
     }),
   ],
-  experimental: {
-    svg: true,
-  },
   vite: {
     build: {
       // minify: false
