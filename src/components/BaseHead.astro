@@ -6,9 +6,9 @@ import { SEO } from "astro-seo";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -23,81 +23,81 @@ const ogImage = new URL(image, Astro.url);
 
 <!-- Font preloads -->
 <link
-	rel="preload"
-	href="/fonts/atkinson-regular.woff"
-	as="font"
-	type="font/woff"
-	crossorigin
+  rel="preload"
+  href="/fonts/atkinson-regular.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/atkinson-bold.woff"
-	as="font"
-	type="font/woff"
-	crossorigin
+  rel="preload"
+  href="/fonts/atkinson-bold.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-Black-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-Black-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-ExtraBold-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-ExtraBold-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-Bold-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-Bold-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-SemiBold-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-SemiBold-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-Medium-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-Medium-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-Regular-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-Regular-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-Light-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-Light-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-ExtraLight-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-ExtraLight-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 <link
-	rel="preload"
-	href="/fonts/Noto-Sans/woff2/NotoSansTC-Thin-subset.woff2"
-	as="font"
-	type="font/woff2"
-	crossorigin
+  rel="preload"
+  href="/fonts/Noto-Sans/woff2/NotoSansTC-Thin-subset.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 
 <!-- Sitemap -->
@@ -105,47 +105,47 @@ const ogImage = new URL(image, Astro.url);
 
 <!-- SEO -->
 <SEO
-	title={title}
-	description={description}
-	canonical={canonicalURL}
-	openGraph={{
-		basic: {
-			title,
-			type: "website",
-			image: ogImage.toString(),
-			url: Astro.url,
-		},
-		image: {
-			alt: title,
-		},
-	}}
-	twitter={{
-		creator: "@pukpuklouis",
-		card: "summary_large_image",
-		title,
-		description,
-		image: ogImage.toString(),
-	}}
-	extend={{
-		meta: [
-			{ name: "generator", content: Astro.generator },
-			{
-				name: "google-site-verification",
-				content: "bx6_IIXObWAVLctV4NRtat-VCBRqz9diSMlFwerl1g0",
-			},
-		],
-	}}
+  title={title}
+  description={description}
+  canonical={canonicalURL}
+  openGraph={{
+    basic: {
+      title,
+      type: "website",
+      image: ogImage.toString(),
+      url: Astro.url,
+    },
+    image: {
+      alt: title,
+    },
+  }}
+  twitter={{
+    creator: "@pukpuklouis",
+    card: "summary_large_image",
+    title,
+    description,
+    image: ogImage.toString(),
+  }}
+  extend={{
+    meta: [
+      { name: "generator", content: Astro.generator },
+      {
+        name: "google-site-verification",
+        content: "bx6_IIXObWAVLctV4NRtat-VCBRqz9diSMlFwerl1g0",
+      },
+    ],
+  }}
 />
 
 <!-- ahrefs setup with Partytown -->
 <script
-	type="text/partytown"
-	src="https://analytics.ahrefs.com/analytics.js"
-	data-key="h8OQRUhXvvY2LPkuL7o0IQ"
-	async
-	is:inline></script>
+  type="text/partytown"
+  src="https://analytics.ahrefs.com/analytics.js"
+  data-key="h8OQRUhXvvY2LPkuL7o0IQ"
+  async
+  is:inline></script>
 
 <!-- View Transitions -->
 <ClientRouter />
 <!-- Theme Toggle -->
-<script is:inline type="text/partytown" src="/scripts/theme-toggle-v2.js"></script>
+<script type="text/partytown" src="/scripts/theme-toggle-v2.js"></script>
