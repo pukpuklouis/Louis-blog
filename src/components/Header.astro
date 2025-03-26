@@ -1,70 +1,86 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE, NAV_LINKS } from '../consts';
-import DarkModeToggle from './DarkModeToggle.astro';
-import { Picture } from 'astro:assets'
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE, NAV_LINKS } from "../consts";
+import DarkModeToggle from "./DarkModeToggle.astro";
+import { Picture } from "astro:assets";
 ---
 
 <header
-	class="m-0 p-0 py-0 px-4 bg-[var(--color-theme-bg)] transition-colors duration-300"
+  class="m-0 p-0 py-0 px-4 bg-[var(--color-theme-bg)] transition-colors duration-300"
 >
-	<nav class="flex items-center justify-between py-4 px-8">
-		<div class="flex items-center">
-			<a href="/" class="flex flex-row items-center hover:no-underline">
-				<Picture src="/spaceman.svg" alt="Logo" class="hidden dark:block transition-all duration-300" inferSize format="avif" width={40} height={40}/>
-				<Picture src="/spaceman-dark.svg" alt="Logo" class="block dark:hidden transition-all duration-300" inferSize format="avif" width={40} height={40}/>
-				<div class="ml-2 hidden lg:block">
-					<h2
-						class="m-0 text-2xl font-bold text-[var(--color-theme-text)]"
-					>
-						{SITE_TITLE}
-					</h2>
-				</div>
-			</a>
-		</div>
-		<div class="hidden sm:flex items-center mr-10">
-			<div class="flex justify-center items-center">
-				{
-					NAV_LINKS.map((link) => (
-						<HeaderLink
-							href={link.url}
-							class="mx-2 py-4 px-2 text-[var(--color-theme-text)] border-b-4 border-transparent hover:text-[var(--color-accent)] hover:no-underline transition-colors duration-300"
-						>
-							{link.title}
-						</HeaderLink>
-					))
-				}
-			</div>
-		</div>
-		<div class="flex items-center sm:ml-10" transition:persist>
-			<DarkModeToggle />
-			<button
-				class="sm:hidden flex flex-col justify-around w-8 h-8 bg-transparent border-none cursor-pointer p-0 ml-4"
-				aria-label="Menu"
-				id="mobile-menu-toggle"
-			>
-				<span
-					class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
-				></span>
-				<span
-					class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
-				></span>
-				<span
-					class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
-				></span>
-			</button>
-		</div>
-	</nav>
-	<div class="mobile-nav hidden flex-col items-center py-4 w-full">
-		{
-			NAV_LINKS.map((link) => (
-				<HeaderLink
-					href={link.url}
-					class="py-2 text-[var(--color-theme-text)] hover:text-[var(--color-accent)]"
-				>
-					{link.title}
-				</HeaderLink>
-			))
-		}
-	</div>
+  <nav class="flex items-center justify-between py-4 px-8">
+    <div class="flex items-center">
+      <a href="/" class="flex flex-row items-center hover:no-underline">
+        <Picture
+          loading="eager"
+          src="/spaceman.svg"
+          alt="Logo"
+          class="hidden dark:block transition-all duration-300"
+          inferSize
+          format="avif"
+          width={40}
+          height={40}
+        />
+        <Picture
+          loading="eager"
+          src="/spaceman-dark.svg"
+          alt="Logo"
+          class="block dark:hidden transition-all duration-300"
+          inferSize
+          format="avif"
+          width={40}
+          height={40}
+        />
+        <div class="ml-2 hidden lg:block">
+          <h2 class="m-0 text-2xl font-bold text-[var(--color-theme-text)]">
+            {SITE_TITLE}
+          </h2>
+        </div>
+      </a>
+    </div>
+    <div class="hidden sm:flex items-center mr-10">
+      <div class="flex justify-center items-center">
+        {
+          NAV_LINKS.map((link) => (
+            <HeaderLink
+              href={link.url}
+              class="mx-2 py-4 px-2 text-[var(--color-theme-text)] border-b-4 border-transparent hover:text-[var(--color-accent)] hover:no-underline transition-colors duration-300"
+            >
+              {link.title}
+            </HeaderLink>
+          ))
+        }
+      </div>
+    </div>
+    <div class="flex items-center sm:ml-10" transition:persist>
+      <DarkModeToggle />
+      <button
+        class="sm:hidden flex flex-col justify-around w-8 h-8 bg-transparent border-none cursor-pointer p-0 ml-4"
+        aria-label="Menu"
+        id="mobile-menu-toggle"
+      >
+        <span
+          class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
+        ></span>
+        <span
+          class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
+        ></span>
+        <span
+          class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
+        ></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav hidden flex-col items-center py-4 w-full">
+    {
+      NAV_LINKS.map((link) => (
+        <HeaderLink
+          href={link.url}
+          class="py-2 text-[var(--color-theme-text)] hover:text-[var(--color-accent)]"
+        >
+          {link.title}
+        </HeaderLink>
+      ))
+    }
+  </div>
 </header>
