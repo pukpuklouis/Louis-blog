@@ -1,7 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE, NAV_LINKS } from '../consts';
-import ThemeToggle from './ThemeToggle.astro';
+import DarkModeToggle from './DarkModeToggle.astro';
 import { Picture } from 'astro:assets'
 ---
 
@@ -37,7 +37,7 @@ import { Picture } from 'astro:assets'
 			</div>
 		</div>
 		<div class="flex items-center sm:ml-10" transition:persist>
-			<ThemeToggle client:load/>
+			<DarkModeToggle />
 			<button
 				class="sm:hidden flex flex-col justify-around w-8 h-8 bg-transparent border-none cursor-pointer p-0 ml-4"
 				aria-label="Menu"
@@ -68,5 +68,3 @@ import { Picture } from 'astro:assets'
 		}
 	</div>
 </header>
-
-	
