@@ -1,0 +1,90 @@
+---
+import { NAV_LINKS } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<div class="menu-wrapper">
+  <button
+    class="sm:hidden flex flex-col justify-around w-10 h-10 bg-[var(--color-theme-bg)] border-none cursor-pointer rounded-md p-2 ml-4 z-0"
+    aria-label="Menu"
+    id="mobile-menu-toggle"
+  >
+    <span
+      class="w-full h-[2px] bg-[var(--color-theme-text)] rounded-full transition-all duration-300 z-10"
+    ></span>
+    <span
+      class="w-full h-[2px] bg-[var(--color-theme-text)] rounded-full transition-all duration-300 z-10"
+    ></span>
+    <span
+      class="w-full h-[2px] bg-[var(--color-theme-text)] rounded-full transition-all duration-300 z-10"
+    ></span>
+  </button>
+</div>
+
+<div
+  class="mobile-nav hidden flex-col items-center py-4 w-full absolute top-[72px] left-0 bg-[var(--color-theme-bg)] z-50 shadow-md"
+>
+  {
+    NAV_LINKS.map((link) => (
+      <HeaderLink
+        href={link.url}
+        class="py-2 text-[var(--color-theme-text)] hover:no-underline hover:text-[var(--color-accent)]"
+      >
+        {link.title}
+      </HeaderLink>
+    ))
+  }
+</div>
+
+<script type="text/partytown">
+  function setupMenu() {
+    const menuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const menuBars = menuToggle?.querySelectorAll("span");
+
+    if (!menuToggle || !mobileNav) return;
+
+    const toggleMenu = () => {
+      mobileNav.classList.toggle("hidden");
+      mobileNav.classList.toggle("flex");
+
+      if (menuBars && menuBars.length === 3) {
+        if (mobileNav.classList.contains("flex")) {
+          menuBars[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+          menuBars[1].style.opacity = "0";
+          menuBars[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+        } else {
+          menuBars[0].style.transform = "none";
+          menuBars[1].style.opacity = "1";
+          menuBars[2].style.transform = "none";
+        }
+      }
+    };
+
+    menuToggle.addEventListener("click", toggleMenu);
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (
+        target instanceof Node &&
+        !menuToggle.contains(target) &&
+        !mobileNav.contains(target) &&
+        mobileNav.classList.contains("flex")
+      ) {
+        toggleMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 640 && mobileNav.classList.contains("flex")) {
+        toggleMenu();
+      }
+    });
+  }
+
+  // Run setup on initial load
+  setupMenu();
+
+  // Run setup again after each page transition
+  document.addEventListener("astro:page-load", setupMenu);
+</script>

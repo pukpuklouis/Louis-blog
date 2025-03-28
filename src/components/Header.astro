@@ -3,6 +3,7 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE, NAV_LINKS } from "../consts";
 import DarkModeToggle from "./DarkModeToggle.astro";
 import { Picture } from "astro:assets";
+import Menu from "./Menu.astro";
 ---
 
 <header
@@ -54,33 +55,7 @@ import { Picture } from "astro:assets";
     </div>
     <div class="flex items-center sm:ml-10" transition:persist>
       <DarkModeToggle />
-      <button
-        class="sm:hidden flex flex-col justify-around w-8 h-8 bg-transparent border-none cursor-pointer p-0 ml-4"
-        aria-label="Menu"
-        id="mobile-menu-toggle"
-      >
-        <span
-          class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
-        ></span>
-        <span
-          class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
-        ></span>
-        <span
-          class="w-8 h-1 bg-[var(--color-theme-text)] rounded-full transition-all duration-300"
-        ></span>
-      </button>
+      <Menu />
     </div>
   </nav>
-  <div class="mobile-nav hidden flex-col items-center py-4 w-full">
-    {
-      NAV_LINKS.map((link) => (
-        <HeaderLink
-          href={link.url}
-          class="py-2 text-[var(--color-theme-text)] hover:text-[var(--color-accent)]"
-        >
-          {link.title}
-        </HeaderLink>
-      ))
-    }
-  </div>
 </header>
