@@ -11,7 +11,9 @@ const { Content } = await render(homepage);
 <Layout title={SITE_TITLE}>
   <main>
     <article>
-      <Content />
+      <div class="homepage-content">
+        <Content />
+      </div>
     </article>
     <ArticleSection />
   </main>

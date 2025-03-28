@@ -4,9 +4,9 @@
     max-width: none;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    font-family: 'Noto Sans TC', 'Atkinson', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
     line-height: 1.6;
-    white-space: pre-wrap;
+    white-space: pre-line;
     /* Changed from pre to pre-line */
 }
 
