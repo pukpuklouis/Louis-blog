@@ -97,58 +97,58 @@
     src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Black-subset.woff2') format('woff2');
     font-weight: 900;
     font-style: bold;
-    font-display: swap; */
-}
+    font-display: swap; 
+}*/
 
-/* @font-face {
+  /* @font-face {
     font-family: 'Noto Sans TC';
     src: url('/fonts/Noto-Sans/woff2/NotoSansTC-ExtraBold-subset.woff2') format('woff2');
     font-weight: 800;
     font-style: normal;
-    font-display: swap; */
-}
+    font-display: swap; 
+}*/
 
-@font-face {
-  font-family: 'Noto Sans TC';
-  src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Bold-subset.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Bold-subset.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'Noto Sans TC';
-  src: url('/fonts/Noto-Sans/woff2/NotoSansTC-SemiBold-subset.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-SemiBold-subset.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'Noto Sans TC';
-  src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Medium-subset.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Medium-subset.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'Noto Sans TC';
-  src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Regular-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Regular-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'Noto Sans TC';
-  src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Light-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: 'Noto Sans TC';
+    src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Light-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
 
-/* @font-face {
+  /* @font-face {
     font-family: 'Noto Sans TC';
     src: url('/fonts/Noto-Sans/woff2/NotoSansTC-ExtraLight-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
     font-weight: 200;
@@ -156,7 +156,7 @@
     font-display: swap;
   } */
 
-/* @font-face {
+  /* @font-face {
     font-family: 'Noto Sans TC';
     src: url('/fonts/Noto-Sans/woff2/NotoSansTC-Thin-subset.woff2') format('woff2'), url('/fonts/Noto-Sans/woff/NotoSansTC-Bold-subset.woff') format('woff');
     font-weight: 100;
@@ -164,21 +164,21 @@
     font-display: swap;
   } */
 
-* {
-  @apply border-border;
-}
+  * {
+    @apply border-border;
+  }
 
-body {
-  @apply bg-background text-foreground m-0 p-0 text-left text-2xl leading-relaxed font-light;
-  font-family: 'Noto Sans TC', 'Atkinson', sans-serif;
-  background: var(--color-theme-bg);
-  color: var(--color-theme-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  body {
+    @apply bg-background text-foreground m-0 p-0 text-left text-2xl leading-relaxed font-light;
+    font-family: 'Noto Sans TC', 'Atkinson', sans-serif;
+    background: var(--color-theme-bg);
+    color: var(--color-theme-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }
 
 /* Custom component classes */
