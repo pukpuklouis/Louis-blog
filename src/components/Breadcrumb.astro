@@ -1,27 +1,29 @@
 ---
-import { getCollection } from 'astro:content';
-import { NAV_LINKS } from '../consts.ts';
+import { getCollection } from "astro:content";
+import { NAV_LINKS } from "../consts.ts";
 
 const currentPath = Astro.url.pathname;
-const segments = currentPath.split('/').filter(Boolean);
+const segments = currentPath.split("/").filter(Boolean);
 
-const posts = await getCollection('blog');
-const currentPost = posts.find((post: any) => `/blog/${post.slug}/` === currentPath);
+const posts = await getCollection("blog");
+const currentPost = posts.find(
+  (post: any) => `/blog/${post.slug}/` === currentPath,
+);
 
 const breadcrumbs = [
   { label: NAV_LINKS[0].title, href: NAV_LINKS[0].url },
   ...segments.map((segment, index) => {
-    const href = `/${segments.slice(0, index + 1).join('/')}`;
+    const href = `/${segments.slice(0, index + 1).join("/")}`;
     let label = segment.charAt(0).toUpperCase() + segment.slice(1);
-    
-    if (segment === 'blog') {
+
+    if (segment === "blog") {
       label = NAV_LINKS[1].title;
-    } else if (segment === 'about') {
+    } else if (segment === "about") {
       label = NAV_LINKS[2].title;
     } else if (currentPost && index === segments.length - 1) {
       label = currentPost.data.title;
     }
-    
+
     return { label, href };
   }),
 ];
@@ -29,17 +31,31 @@ const breadcrumbs = [
 
 <nav aria-label="Breadcrumb" class="py-2 px-4 mb-4">
   <div class="flex flex-wrap">
-    {breadcrumbs.map((crumb, index) => (
-      <div class="font-medium text-md md:text-lg inline-flex items-center">
-        {index === breadcrumbs.length - 1 ? (
-          <span aria-current="page" class="font-light text-[var(--color-theme-text)] opacity-70">{crumb.label}</span>
-        ) : (
-          <a href={crumb.href} class="text-[var(--color-theme-text)] hover:no-underline">{crumb.label}</a>
-        )}
-        {index !== breadcrumbs.length - 1 && 
-          <span class="mx-2 text-[var(--color-theme-text)] opacity-50">></span>
-        }
-      </div>
-    ))}
+    {
+      breadcrumbs.map((crumb, index) => (
+        <div class="font-medium text-base md:text-lg inline-flex items-center">
+          {index === breadcrumbs.length - 1 ? (
+            <span
+              aria-current="page"
+              class="font-light text-[var(--color-theme-text)] opacity-70"
+            >
+              {crumb.label}
+            </span>
+          ) : (
+            <a
+              href={crumb.href}
+              class="text-[var(--color-theme-text)] hover:no-underline"
+            >
+              {crumb.label}
+            </a>
+          )}
+          {index !== breadcrumbs.length - 1 && (
+            <span class="mx-2 text-[var(--color-theme-text)] opacity-50">
+              >
+            </span>
+          )}
+        </div>
+      ))
+    }
   </div>
 </nav>
