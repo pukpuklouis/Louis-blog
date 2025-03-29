@@ -19,6 +19,8 @@ import { Image } from "astro:assets";
         widths={[300, 600, 1000]}
         sizes="(max-width: 640px) 300px, max-width: 720px) 600px, (max-width: 1024px) 1000px, 100vw"
         alt="關於老鹿"
+        width={1000}
+        height={500}
         loading="lazy"
         inferSize={true}
         format={"avif"}
@@ -26,7 +28,7 @@ import { Image } from "astro:assets";
       />
     </div>
 
-    <div class="w-full max-w-2xl mx-auto mt-8">
+    <div class="w-full max-w-2xl text-xl/relaxed mx-auto mt-8">
       <p>
         <h2>嗨，我是Louis 老鹿</h2>
         一位持續學習和自我實驗的多領域探索者。 我擁有超過4年的即時口譯經驗，曾協助完成100多場培訓課程的中英口譯。<br
