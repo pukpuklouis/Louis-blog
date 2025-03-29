@@ -55,4 +55,7 @@ export default defineConfig({
       // minify: false
     },
   },
+  image: {
+    domains: ["images.unsplash.com", "res.cloudinary.com", "blogs.itslouis.cc"],
+  },
 });

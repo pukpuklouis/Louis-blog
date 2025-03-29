@@ -28,12 +28,12 @@ const page_Description =
               <a href={`/blog/${post.slug}/`} class="hover:no-underline">
                 <div class="image-container" transition:name={post.slug}>
                   <Image
-                    width={720}
-                    height={360}
                     src={post.data.heroImage}
                     alt={post.data.title}
                     loading="eager"
                     inferSize
+                    decoding="async"
+                    format="avif"
                     class="object-cover w-full h-54 md:w-full md:aspect-video lg:w-full lg:h-auto lg:aspect-video rounded-xl"
                   />
                 </div>

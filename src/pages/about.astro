@@ -15,12 +15,13 @@ import { Image } from "astro:assets";
     </div>
     <div class="w-full max-w-2xl rounded-xl mx-auto">
       <Image
-        width={1020}
-        height={510}
-        src="/blog-placeholder-about.jpg"
-        alt="About Louis"
+        src="/blog-placeholder-5.jpg"
+        widths={[300, 600, 1000]}
+        sizes="(max-width: 640px) 300px, max-width: 720px) 600px, (max-width: 1024px) 1000px, 100vw"
+        alt="關於老鹿"
         loading="lazy"
-        inferSize
+        inferSize={true}
+        format={"avif"}
         class=""
       />
     </div>

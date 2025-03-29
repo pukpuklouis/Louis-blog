@@ -234,17 +234,15 @@
   }
 
   .description {
-    @apply text-xl mb-8 text-center;
+    @apply text-xl mb-2 text-center;
   }
 
   p {
-    @apply text-balance mb-2 text-2xl font-light;
-    font-family: 'Noto Sans TC', sans-serif;
+    @apply text-2xl font-light;
   }
 
   strong {
-    @apply font-bold text-2xl;
-    font-family: 'Noto Sans TC', sans-serif;
+    @apply font-bold;
   }
 
   a {
@@ -308,7 +306,7 @@
   }
 
   .homepage-content p {
-    @apply text-pretty mb-2 text-xl font-light;
+    @apply mb-1 text-xl font-light;
     font-family: 'Noto Sans TC', sans-serif;
     white-space: pre-line;
 

@@ -6,7 +6,7 @@
     overflow-wrap: break-word;
     font-family: 'Noto Sans TC', sans-serif;
     line-height: 1.6;
-    white-space: pre-line;
+    white-space: pre-line !important;
     /* Changed from pre to pre-line */
 }
 
@@ -19,32 +19,28 @@
 
 /* Headings */
 .blog-content h1 {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-top: 2rem;
+    @apply text-3xl font-bold;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     color: var(--color-theme-text);
 }
 
 .blog-content h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 2rem;
+    @apply text-2xl font-bold;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     color: var(--color-theme-text);
 }
 
 .blog-content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
+    @apply text-xl font-bold;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
     color: var(--color-theme-text);
 }
 
 .blog-content h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
+    @apply text-lg font-bold;
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
     color: var(--color-theme-text);
@@ -52,8 +48,7 @@
 
 .blog-content h5,
 .blog-content h6 {
-    font-size: 1rem;
-    font-weight: 500;
+    @apply text-base font-bold;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     color: var(--color-theme-text);
@@ -61,16 +56,12 @@
 
 /* Paragraphs and text */
 .blog-content p {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    font-weight: 400;
+    @apply text-lg/relaxed font-light;
     color: var(--color-theme-text);
 }
 
 .blog-content strong {
-    font-weight: 600;
+    @apply font-bold;
 }
 
 .blog-content em {
@@ -83,12 +74,13 @@
 
 /* Links */
 .blog-content a {
+    @apply no-underline font-bold;
     color: var(--color-accent);
-    text-decoration: underline;
     transition: color 0.2s ease;
 }
 
 .blog-content a:hover {
+    @apply no-underline;
     color: var(--color-accent-dark);
 }
 
@@ -96,29 +88,25 @@
 .blog-content ul {
     list-style-type: disc;
     padding-left: 1.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: none !important;
+    margin-bottom: none !important;
 }
 
 .blog-content ol {
     list-style-type: decimal;
-    padding-left: 2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
 }
 
 .blog-content li {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+    @apply text-lg font-light my-1 !important;
 }
 
 .blog-content li>ul,
 .blog-content li>ol {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: none !important;
+    margin-bottom: none !important;
 }
+
 
 /* Blockquotes */
 .blog-content blockquote {
@@ -166,10 +154,11 @@
 
 /* Tables */
 .blog-content table {
+    @apply text-2xl font-light;
+    line-height: 1.6;
     width: 100%;
     margin: 0.5rem 0 1rem;
     border-collapse: collapse;
-    font-size: 1rem;
     border-radius: 0.5rem;
     overflow: hidden;
     display: table;
@@ -276,16 +265,16 @@
     .blog-content h4,
     .blog-content h5,
     .blog-content h6 {
-        font-size: 1rem;
+        @apply text-lg font-bold !important;
     }
 
     .blog-content p,
     .blog-content li {
-        font-size: 0.875rem;
+        @apply text-base font-light my-1 !important;
     }
 
     .blog-content table {
-        font-size: 0.75rem;
+        @apply text-sm font-light;
     }
 }
 
@@ -330,7 +319,7 @@
 
     .blog-content p,
     .blog-content li {
-        font-size: 1.125rem;
+        @apply text-lg font-light my-1;
     }
 
     .blog-content table {
