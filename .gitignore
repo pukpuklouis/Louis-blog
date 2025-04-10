@@ -15,8 +15,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# windsurf
-.windsurfrules
 
 # environment variables
 .env
@@ -43,4 +41,11 @@ public/~partytown-ww.js
 public/~partytown-ww.js.map
 public/~partytown-ww-sw.js
 public/~partytown-ww-sw.js.map
-.windsurfrules
+
+#Everything above is alway ignored
+# Ignore below by default - remove * below temporarily when working with roo/windsur/cursor,  add * before committing
+*
+# AI IDE rules
+!/.windsurfrules
+!/.cursor/**
+!/.roo/**
