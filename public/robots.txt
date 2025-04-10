@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 
 
-Sitemap: https://blogs.itslouis.cc/sitemap-0.xml
+Sitemap: https://blogs.itslouis.cc/sitemap-index.xml
 
