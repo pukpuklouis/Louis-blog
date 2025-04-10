@@ -46,6 +46,6 @@ public/~partytown-ww-sw.js.map
 # Ignore below by default - remove * below temporarily when working with roo/windsur/cursor,  add * before committing
 *
 # AI IDE rules
-!/.windsurfrules
+!/.windsurfrules/
 !/.cursor/**
 !/.roo/**
