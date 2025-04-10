@@ -8,7 +8,7 @@ const homepage = await getEntry("homepage", "index");
 const { Content } = await render(homepage);
 ---
 
-<Layout title={SITE_TITLE}>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main>
     <article>
       <div class="homepage-content">
