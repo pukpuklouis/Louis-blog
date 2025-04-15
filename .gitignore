@@ -29,18 +29,6 @@ pnpm-debug.log*
 # Visual Studio Code settings
 .vscode/
 
-# bun
-bun.lockb
-
-# partytown
-public/~partytown
-public/~partytown-debug
-public/~partytown-sw.js
-public/~partytown-sw.js.map
-public/~partytown-ww.js
-public/~partytown-ww.js.map
-public/~partytown-ww-sw.js
-public/~partytown-ww-sw.js.map
 
 #Everything above is alway ignored
 # Ignore below by default - remove * below temporarily when working with roo/windsur/cursor,  add * before committing
