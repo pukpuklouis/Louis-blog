@@ -33,5 +33,5 @@ pnpm-debug.log*
 *
 # AI IDE rules
 !/.windsurfrules/
-!/.cursor/**
-!/.roo/**
+!/.cursor/
+!/.roo/
