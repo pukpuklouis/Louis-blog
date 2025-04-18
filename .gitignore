@@ -28,10 +28,11 @@ pnpm-debug.log*
 .vscode/
 
 
+
 #Everything above is alway ignored
 # Ignore below by default - remove * below temporarily when working with roo/windsur/cursor,  add * before committing
 *
 # AI IDE rules
 !/.windsurfrules/
-!/.cursor/
-!/.roo/
+!/.cursor/**
+!/.roo/**
