@@ -43,7 +43,7 @@ const GOOGLE_INDEXING_API_ENDPOINT =
 const GOOGLE_API_SCOPE = "https://www.googleapis.com/auth/indexing";
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     console.log(`收到請求: ${request.method} ${request.url}`);
 
     // 驗證請求方法是否為 POST
