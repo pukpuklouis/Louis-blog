@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node ./scripts/trigger-indexing-worker.js",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:worker": "node ./scripts/test-worker.js"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -19,6 +20,7 @@
     "@astrojs/tailwind": "5.1.1",
     "@astrojs/ts-plugin": "^1.10.4",
     "@radix-ui/react-slot": "^1.1.2",
+    "@tsndr/cloudflare-worker-jwt": "^3.1.4",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "5.5.5",
@@ -32,8 +34,11 @@
     "astro-tailwind-config-viewer": "^2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.5.0",
     "free-astro-components": "^1.0.12",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.483.0",
+    "node-fetch": "^3.3.2",
     "node-gyp": "^10.2.0",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",

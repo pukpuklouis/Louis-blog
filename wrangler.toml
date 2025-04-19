@@ -1,0 +1,8 @@
+name = "google-indexing-trigger-worker" # 請將此名稱替換為您希望的 Worker 名稱
+main = "worker.js" # 指回原始檔案，因為移除了 build 步驟
+compatibility_date = "2025-04-02" # 請使用最新的兼容性日期
+[observability.logs]
+enabled = true
+
+[build] # 暫時移除自訂建置步驟
+command = "npx esbuild worker.js --bundle --outfile=dist/worker.js --format=esm --platform=browser --minify --target=es2020"
