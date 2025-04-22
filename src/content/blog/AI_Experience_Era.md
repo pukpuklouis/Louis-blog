@@ -11,7 +11,7 @@ Richard Sutton的強化學習研究正在重塑AI與企業的未來。透過體�
 
 > "最終，最具普遍性的方法將利用與世界的互動進行學習，這種學習終將超越人類預先判斷的資料。"
 
-![AI體驗學習與創業者快速適應市場的關係圖](https://blogs.itslouis.cc/images/graph.svg)
+![AI體驗學習與創業者快速適應市場的關係圖](https://res.cloudinary.com/pukpuklouis/image/upload/v1745302983/mac-upload/bnthaospghd7xzxmxkd3.svg)
 
 ### 體驗時代的定義
 
@@ -96,7 +96,7 @@ AI體驗時代:按需彈性擴展
 
 ## AI代理人生態系統：一人公司的數位團隊
 
-![AI代理人生態系統圖](https://blogs.itslouis.cc/images/ai-agents.svg)
+![AI代理人生態系統圖](https://res.cloudinary.com/pukpuklouis/image/upload/v1745302983/mac-upload/qvjdsanjwoqphidn3spv.svg)
 
 ### 建構您的AI團隊
 
