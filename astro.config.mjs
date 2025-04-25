@@ -25,12 +25,7 @@ export default defineConfig({
     partytown({
       config: {
         debug: false,
-        forward: ["dataLayer.push", "h8OQRUhXvvY2LPkuL7o0IQ", "hbspt"],
-        proxies: [
-          {
-            host: "analytics.ahrefs.com",
-          },
-        ],
+        forward: ["ahrefs", "hbspt"],
       },
     }),
     minify({
