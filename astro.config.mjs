@@ -25,7 +25,7 @@ export default defineConfig({
     partytown({
       config: {
         debug: false,
-        forward: ["ahrefs", "hbspt"],
+        forward: ["_hsq.push", "gtm.push", "dataLayer.push"],
       },
     }),
     minify({

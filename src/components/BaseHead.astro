@@ -136,16 +136,25 @@ const ogImage = new URL(image, Astro.url);
     ],
   }}
 />
-
-<!-- ahrefs setup with Partytown -->
+<!-- Google tag (gtag.js) -->
 <script
   type="text/partytown"
+  src="https://www.googletagmanager.com/gtag/js?id=G-8H5H56GVQP"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-8H5H56GVQP");
+</script>
+<!-- ahrefs setup -->
+<script
   src="https://analytics.ahrefs.com/analytics.js"
   data-key="h8OQRUhXvvY2LPkuL7o0IQ"
-  async
-  defer></script>
+  async></script>
 
-<!-- View Transitions -->
 <!-- Start of HubSpot Embed Code -->
 <script
   type="text/partytown"
@@ -154,4 +163,5 @@ const ogImage = new URL(image, Astro.url);
   defer
   src="//js.hs-scripts.com/46069516.js"></script>
 <!-- End of HubSpot Embed Code -->
+<!-- View Transitions -->
 <ClientRouter />
