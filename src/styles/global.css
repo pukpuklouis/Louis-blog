@@ -239,6 +239,7 @@
 
   p {
     @apply text-2xl font-light;
+    white-space: pre-line !important;
   }
 
   strong {

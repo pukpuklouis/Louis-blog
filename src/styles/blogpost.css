@@ -58,6 +58,8 @@
 .blog-content p {
     @apply text-lg/relaxed font-light;
     color: var(--color-theme-text);
+    white-space: pre-line !important;
+    /* Changed from pre to pre-line */
 }
 
 .blog-content strong {

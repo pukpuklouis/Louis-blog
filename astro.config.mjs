@@ -7,21 +7,27 @@ import icon from "astro-icon";
 import pageInsight from "astro-page-insight";
 import metaTags from "astro-meta-tags";
 import partytown from "@astrojs/partytown";
-import tailwindConfigViewer from "astro-tailwind-config-viewer";
 import minify from "astro-min";
+import rehypePresetMinify from "rehype-preset-minify";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://blogs.itslouis.cc",
+  markdown: {
+    gfm: true,
+    smartypants: true,
+  },
   integrations: [
-    mdx(),
+    mdx({
+      rehypePlugins: [rehypePresetMinify],
+      optimize: true,
+    }),
     sitemap(),
     tailwind(),
     react(),
     icon(),
     pageInsight(),
     metaTags(),
-    tailwindConfigViewer(),
     partytown({
       config: {
         debug: false,
