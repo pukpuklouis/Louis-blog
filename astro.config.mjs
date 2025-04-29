@@ -13,6 +13,8 @@ import rehypePresetMinify from "rehype-preset-minify";
 // https://astro.build/config
 export default defineConfig({
   site: "https://blogs.itslouis.cc",
+  trailingSlash: "never",
+  compressHTML: true,
   markdown: {
     gfm: true,
     smartypants: true,
