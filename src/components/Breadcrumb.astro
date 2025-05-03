@@ -7,18 +7,29 @@ const segments = currentPath.split("/").filter(Boolean);
 
 const posts = await getCollection("blog");
 const currentPost = posts.find(
-  (post: any) => `/blog/${post.slug}` === currentPath,
+  (post: any) => `/blog/${post.slug}` === currentPath || `/blog/${post.slug}.html` === currentPath,
 );
 
 const breadcrumbs = [
   { label: NAV_LINKS[0].title, href: NAV_LINKS[0].url },
   ...segments.map((segment, index) => {
-    const href = `/${segments.slice(0, index + 1).join("/")}`;
-    let label = segment.charAt(0).toUpperCase() + segment.slice(1);
+    // Remove .html extension if present in the segment
+    const cleanSegment = segment.endsWith('.html') ? segment.slice(0, -5) : segment;
+    
+    // Build href with .html extension for non-root paths
+    const segmentsToUse = segments.slice(0, index + 1).map((seg, i) => {
+      if (i === index && seg.endsWith('.html')) {
+        return seg;
+      }
+      return seg;
+    });
+    
+    const href = `/${segmentsToUse.join("/")}`;
+    let label = cleanSegment.charAt(0).toUpperCase() + cleanSegment.slice(1);
 
-    if (segment === "blog") {
+    if (cleanSegment === "blog") {
       label = NAV_LINKS[1].title;
-    } else if (segment === "about") {
+    } else if (cleanSegment === "about") {
       label = NAV_LINKS[2].title;
     } else if (currentPost && index === segments.length - 1) {
       label = currentPost.data.title;
@@ -27,6 +38,7 @@ const breadcrumbs = [
     return { label, href };
   }),
 ];
+
 ---
 
 <nav aria-label="Breadcrumb" class="py-2 px-4 mb-4">
