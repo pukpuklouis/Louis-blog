@@ -1,3 +1,9 @@
 /*
   Content-Security-Policy: script-src 'self' ajax.cloudflare.com analytics.ahrefs.com js.hs-analytics.net js.hs-banner.com;
-  Access-Control-Allow-Origin: https://blogs.itslouis.cc;
+/*
+  Access-Control-Allow-Origin: *
+  # 如果需要，在此處新增其他全域標頭
+
+/(*)/
+  HTTP/1.1 301 Moved Permanently
+  Location: /$1

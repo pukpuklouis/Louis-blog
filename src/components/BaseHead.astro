@@ -11,7 +11,12 @@ interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Create canonical URL and remove .html extension if present
+const pathName = Astro.url.pathname;
+const canonicalPath = pathName.endsWith('.html') 
+  ? pathName.slice(0, -5) // Remove .html extension
+  : pathName;
+const canonicalURL = new URL(canonicalPath, Astro.site).toString();
 const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 const ogImage = new URL(image, Astro.url);
 ---
