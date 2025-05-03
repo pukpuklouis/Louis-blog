@@ -14,6 +14,9 @@ import rehypePresetMinify from "rehype-preset-minify";
 export default defineConfig({
   site: "https://blogs.itslouis.cc",
   trailingSlash: "never",
+  build: {
+    format: "file",
+  },
   compressHTML: true,
   markdown: {
     gfm: true,
