@@ -7,7 +7,7 @@ const segments = currentPath.split("/").filter(Boolean);
 
 const posts = await getCollection("blog");
 const currentPost = posts.find(
-  (post: any) => `/blog/${post.slug}/` === currentPath,
+  (post: any) => `/blog/${post.slug}` === currentPath,
 );
 
 const breadcrumbs = [

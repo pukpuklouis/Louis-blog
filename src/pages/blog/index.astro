@@ -25,7 +25,7 @@ const page_Description =
         {
           posts.map((post: any) => (
             <div class="">
-              <a href={`/blog/${post.slug}/`} class="hover:no-underline">
+              <a href={`/blog/${post.slug}`} class="hover:no-underline">
                 <div class="image-container" transition:name={post.slug}>
                   <Image
                     src={post.data.heroImage}
