@@ -13,7 +13,7 @@ interface Props {
 
 // Create canonical URL and remove .html extension if present
 const pathName = Astro.url.pathname;
-const canonicalPath = pathName.endsWith('.html') 
+const canonicalPath = pathName.endsWith(".html")
   ? pathName.slice(0, -5) // Remove .html extension
   : pathName;
 const canonicalURL = new URL(canonicalPath, Astro.site).toString();
@@ -118,7 +118,7 @@ const ogImage = new URL(image, Astro.url);
       title,
       type: "website",
       image: ogImage.toString(),
-      url: Astro.url,
+      url: canonicalURL,
     },
     image: {
       alt: title,
