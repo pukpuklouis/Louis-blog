@@ -168,5 +168,21 @@ const ogImage = new URL(image, Astro.url);
   defer
   src="//js.hs-scripts.com/46069516.js"></script>
 <!-- End of HubSpot Embed Code -->
+<!-- metriccool tracking -->
+<script type="text/partytown">
+  function loadScript(a) {
+    var b = document.getElementsByTagName("head")[0],
+      c = document.createElement("script");
+    (c.type = "text/javascript"),
+      (c.src = "https://tracker.metricool.com/resources/be.js"),
+      (c.onreadystatechange = a),
+      (c.onload = a),
+      b.appendChild(c);
+  }
+  loadScript(function () {
+    beTracker.t({ hash: "835af38e62f8a039ee9f308604bd5a6e" });
+  });
+</script>
+
 <!-- View Transitions -->
 <ClientRouter />
